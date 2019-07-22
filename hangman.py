@@ -6,6 +6,7 @@ def get_num_attempts():
 	#write code here
 
 def get_min_word_length():
+	"""Get user-inputted minimum word length for the game."""
 	while True:
 		min_word_length=input("Enter the minimum word length [4-16] : ")
 		try:
