@@ -28,7 +28,20 @@ def get_display_word(word, idxs):
     return displayed_word.strip()
 
 def get_next_letter(remaining_letters):
-	#write code here
+	"""Get the user-inputted next letter."""
+    if len(remaining_letters) == 0:
+        raise ValueError('There are no remaining letters')
+    while True:
+        next_letter = input('Choose the next letter: ').lower()
+        if len(next_letter) != 1:
+            print('{0} is not a single character'.format(next_letter))
+        elif next_letter not in ascii_lowercase:
+            print('{0} is not a letter'.format(next_letter))
+        elif next_letter not in remaining_letters:
+            print('{0} has been guessed before'.format(next_letter))
+        else:
+            remaining_letters.remove(next_letter)
+            return next_letter
 
 def play_hangman():
 	print('Starting a game of Hangman...')
