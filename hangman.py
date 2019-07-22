@@ -20,7 +20,12 @@ def get_min_word_length():
 			
 
 def get_display_word(word, idxs):
-	#write code here
+	"""Get the word suitable for display."""
+    if len(word) != len(idxs):
+        raise ValueError('Word length and indices length are not the same')
+    displayed_word = ''.join(
+        [letter if idxs[i] else '*' for i, letter in enumerate(word)])
+    return displayed_word.strip()
 
 def get_next_letter(remaining_letters):
 	#write code here
